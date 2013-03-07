@@ -13,20 +13,9 @@
 		55F92A8016E8E57800E8EB56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F92A7F16E8E57800E8EB56 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		55F92A6A16E8E50100E8EB56 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		5524019616E8F62000B952BA /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		553DA58716E92E2E00F26577 /* com.tyilo.lid-sleep.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "com.tyilo.lid-sleep.plist"; sourceTree = "<group>"; };
 		55F92A6C16E8E50100E8EB56 /* Lid sleep */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lid sleep"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55F92A6F16E8E50100E8EB56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		55F92A7216E8E50100E8EB56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				55F92A7216E8E50100E8EB56 /* main.m */,
+				553DA58716E92E2E00F26577 /* com.tyilo.lid-sleep.plist */,
 				55F92A7416E8E50100E8EB56 /* Supporting Files */,
 			);
 			path = "Lid sleep";
@@ -101,7 +91,6 @@
 			buildPhases = (
 				55F92A6816E8E50100E8EB56 /* Sources */,
 				55F92A6916E8E50100E8EB56 /* Frameworks */,
-				55F92A6A16E8E50100E8EB56 /* CopyFiles */,
 			);
 			buildRules = (
 			);
