@@ -6,12 +6,63 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		553DA59C16E9335000F26577 /* Install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 553DA59D16E9335000F26577 /* Build configuration list for PBXAggregateTarget "Install" */;
+			buildPhases = (
+				553DA5A416E9349700F26577 /* CopyFiles */,
+				553DA5A316E9336600F26577 /* ShellScript */,
+			);
+			dependencies = (
+				553DA5A116E9335400F26577 /* PBXTargetDependency */,
+			);
+			name = Install;
+			productName = Install;
+		};
+		553DA5A616E9363300F26577 /* Uninstall */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 553DA5A716E9363300F26577 /* Build configuration list for PBXAggregateTarget "Uninstall" */;
+			buildPhases = (
+				553DA5AA16E9364400F26577 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Uninstall;
+			productName = Uninstall;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		5524019716E8F62000B952BA /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5524019616E8F62000B952BA /* ScriptingBridge.framework */; };
+		553DA5A516E934A300F26577 /* com.tyilo.lid-sleep.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 553DA58716E92E2E00F26577 /* com.tyilo.lid-sleep.plist */; };
 		55F92A7016E8E50100E8EB56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F92A6F16E8E50100E8EB56 /* Foundation.framework */; };
 		55F92A7316E8E50100E8EB56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F92A7216E8E50100E8EB56 /* main.m */; };
 		55F92A8016E8E57800E8EB56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F92A7F16E8E57800E8EB56 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		553DA5A016E9335400F26577 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55F92A6416E8E50100E8EB56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55F92A6B16E8E50100E8EB56;
+			remoteInfo = "Lid sleep";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		553DA5A416E9349700F26577 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				553DA5A516E934A300F26577 /* com.tyilo.lid-sleep.plist in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5524019616E8F62000B952BA /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
@@ -123,9 +174,40 @@
 			projectRoot = "";
 			targets = (
 				55F92A6B16E8E50100E8EB56 /* Lid sleep */,
+				553DA59C16E9335000F26577 /* Install */,
+				553DA5A616E9363300F26577 /* Uninstall */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		553DA5A316E9336600F26577 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "installation_path=\"$HOME/Library/Application Support/Lid sleep\"\nlaunchagents_path=\"$HOME/Library/LaunchAgents\"\nmkdir -p \"$installation_path\"\ncp \"$BUILT_PRODUCTS_DIR/Lid sleep\" \"$installation_path\"\ncp \"$BUILT_PRODUCTS_DIR/com.tyilo.lid-sleep.plist\" \"$launchagents_path\"\nlaunchctl load \"$launchagents_path\" &> /dev/null";
+		};
+		553DA5AA16E9364400F26577 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "installation_path=\"$HOME/Library/Application Support/Lid sleep\"\nlaunchagents_path=\"$HOME/Library/LaunchAgents\"\nrm -rf \"$installation_path\"\nrm -f \"launchagents_path/com.tyilo.lid-sleep.plist\"\nlaunchctl load \"$launchagents_path\" &> /dev/null";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		55F92A6816E8E50100E8EB56 /* Sources */ = {
@@ -138,7 +220,43 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		553DA5A116E9335400F26577 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55F92A6B16E8E50100E8EB56 /* Lid sleep */;
+			targetProxy = 553DA5A016E9335400F26577 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		553DA59E16E9335000F26577 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		553DA59F16E9335000F26577 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		553DA5A816E9363300F26577 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		553DA5A916E9363300F26577 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		55F92A7816E8E50100E8EB56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -227,6 +345,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		553DA59D16E9335000F26577 /* Build configuration list for PBXAggregateTarget "Install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553DA59E16E9335000F26577 /* Debug */,
+				553DA59F16E9335000F26577 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		553DA5A716E9363300F26577 /* Build configuration list for PBXAggregateTarget "Uninstall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553DA5A816E9363300F26577 /* Debug */,
+				553DA5A916E9363300F26577 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		55F92A6716E8E50100E8EB56 /* Build configuration list for PBXProject "Lid sleep" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
