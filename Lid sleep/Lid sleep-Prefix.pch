@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Lid sleep' target in the 'Lid sleep' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif
