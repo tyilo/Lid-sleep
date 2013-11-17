@@ -1,3 +1,9 @@
+This is useless
+===============
+
+Run `sudo nvram boot-args=iog=0x0` instead and it works. See http://apple.stackexchange.com/a/84663/6439
+
+
 Lid-sleep
 =========
 
