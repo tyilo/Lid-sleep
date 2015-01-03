@@ -192,7 +192,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "installation_path=\"$HOME/Library/Application Support/Lid sleep\"\nlaunchagents_path=\"$HOME/Library/LaunchAgents\"\nmkdir -p \"$installation_path\"\ncp \"$BUILT_PRODUCTS_DIR/Lid sleep\" \"$installation_path\"\ncp \"$BUILT_PRODUCTS_DIR/com.tyilo.lid-sleep.plist\" \"$launchagents_path\"\nlaunchctl load \"$launchagents_path\" &> /dev/null";
+			shellScript = "installation_path=\"$HOME/Library/Application Support/Lid sleep\"\nlaunchagents_path=\"$HOME/Library/LaunchAgents/com.tyilo.lid-sleep.plist\"\nmkdir -p \"$installation_path\"\ncp \"$BUILT_PRODUCTS_DIR/Lid sleep\" \"$installation_path\"\ncp \"$BUILT_PRODUCTS_DIR/com.tyilo.lid-sleep.plist\" \"$launchagents_path\"\nlaunchctl load \"$launchagents_path\" &> /dev/null";
 		};
 		553DA5AA16E9364400F26577 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -205,7 +205,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "installation_path=\"$HOME/Library/Application Support/Lid sleep\"\nlaunchagents_path=\"$HOME/Library/LaunchAgents\"\nrm -rf \"$installation_path\"\nrm -f \"launchagents_path/com.tyilo.lid-sleep.plist\"\nlaunchctl load \"$launchagents_path\" &> /dev/null";
+			shellScript = "installation_path=\"$HOME/Library/Application Support/Lid sleep\"\nlaunchagents_path=\"$HOME/Library/LaunchAgents/com.tyilo.lid-sleep.plist\"\nlaunchctl unload \"$launchagents_path\" &> /dev/null\nrm -rf \"$installation_path\"\nrm -f \"launchagents_path/com.tyilo.lid-sleep.plist\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -352,6 +352,7 @@
 				553DA59F16E9335000F26577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		553DA5A716E9363300F26577 /* Build configuration list for PBXAggregateTarget "Uninstall" */ = {
 			isa = XCConfigurationList;
@@ -360,6 +361,7 @@
 				553DA5A916E9363300F26577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		55F92A6716E8E50100E8EB56 /* Build configuration list for PBXProject "Lid sleep" */ = {
 			isa = XCConfigurationList;
