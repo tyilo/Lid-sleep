@@ -205,7 +205,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "installation_path=\"$HOME/Library/Application Support/Lid sleep\"\nlaunchagents_path=\"$HOME/Library/LaunchAgents/com.tyilo.lid-sleep.plist\"\nlaunchctl unload \"$launchagents_path\" &> /dev/null\nrm -rf \"$installation_path\"\nrm -f \"launchagents_path/com.tyilo.lid-sleep.plist\"";
+			shellScript = "installation_path=\"$HOME/Library/Application Support/Lid sleep\"\nlaunchagents_path=\"$HOME/Library/LaunchAgents/com.tyilo.lid-sleep.plist\"\nlaunchctl unload \"$launchagents_path\" &> /dev/null\nrm -rf \"$installation_path\"\nrm -f \"$launchagents_path\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
