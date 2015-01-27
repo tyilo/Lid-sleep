@@ -22,14 +22,20 @@ BOOL isBuiltinDisplayConnected() {
 	return NO;
 }
 
+void displayConfigChanged(CGDirectDisplayID display, CGDisplayChangeSummaryFlags flags, void *userInfo) {
+	if(!isBuiltinDisplayConnected()) {
+		NSLog(@"Builtin display removed, sleeping...");
+
+		SBApplication *systemEvents = [SBApplication applicationWithBundleIdentifier:@"com.apple.systemevents"];
+		[systemEvents performSelector:@selector(sleep)];
+	}
+}
+
 int main(int argc, const char * argv[]) {
 	@autoreleasepool {
-		[[NSDistributedNotificationCenter defaultCenter] addObserverForName:@"com.apple.BezelServices.BMDisplayHWReconfiguredEvent" object:nil queue:nil usingBlock:^(NSNotification *notification) {
-			if(!isBuiltinDisplayConnected()) {
-				SBApplication *systemEvents = [SBApplication applicationWithBundleIdentifier:@"com.apple.systemevents"];
-				[systemEvents performSelector:@selector(sleep)];
-			}
-		}];
+		CGDisplayRegisterReconfigurationCallback(displayConfigChanged, NULL);
+
+		NSApplicationLoad();
 		
 		CFRunLoopRun();
 	}
